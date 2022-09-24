@@ -59,9 +59,9 @@ eventEmitter.emit("log")
 ```typescript
 pocketEvents(baseEvents={}): {
     // e is a object holding an array of callbacks for each event name.
-    e: [](...any)=>void,
-    // on() registers the function `cb` as an event listener for the `event` event.
-    on(event: string, cb: (...any)=>void)=>void,
+    e: Record<string, [](...any)=>void>,
+    // on() registers the function `cb` as an event listener for the `event` event. It returns a function to unbind the event.
+    on(event: string, cb: (...any)=>void): ()=>void,
     // emit() calls `cb(...args)` for each callback of the `event` event.
     emit(event: string, ...args: any[]): void
 }
@@ -69,8 +69,39 @@ pocketEvents(baseEvents={}): {
 
 ### `subscription`
 
-- [ ] TODO add docs for `subscription`
+```javascript
+const pocketSubscription = require("pocket/subscription");
+const countSubscription = pocketSubscription()
 
+let count = 0
+
+const unsubscribe = countSubscription.subscribe((c) => {
+    console.log("count is now", c)
+})
+
+const setCount = c => {
+    count = c
+    countSubscription.publish(c)
+}
+
+setCount(1)
+setCount(2)
+setCount(3)
+```
+
+#### API
+
+```typescript
+pocketSubscription(): {
+    // l is an array holding all the listener functions
+    l: [](...any)=>void,
+    // subscribe() registers a listener callback `cb`. It returns a function to unsubscribe the listener.
+    subscribe(cb: (...any)=>void): ()=>void,
+    // publish() calls all the listener functions with the given `args`.
+    publish(...args: []any): void
+
+}
+```
 ### `model`
 
 - [ ] TODO add docs for `model`
