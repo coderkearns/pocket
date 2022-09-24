@@ -106,7 +106,7 @@ pocketSubscription(baseListeners=[]): {
 ### `model`
 
 ```javascript
-const pocketModel = require("pocket/subscription");
+const pocketModel = require("pocket/model");
 const Users = pocketModel()
 
 // Create some users
