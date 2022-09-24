@@ -92,7 +92,7 @@ setCount(3)
 #### API
 
 ```typescript
-pocketSubscription(): {
+pocketSubscription(baseListeners=[]): {
     // l is an array holding all the listener functions
     l: [](...any)=>void,
     // subscribe() registers a listener callback `cb`. It returns a function to unsubscribe the listener.
@@ -102,6 +102,7 @@ pocketSubscription(): {
 
 }
 ```
+
 ### `model`
 
 - [ ] TODO add docs for `model`
