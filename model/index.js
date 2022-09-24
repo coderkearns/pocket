@@ -10,8 +10,8 @@ module.exports = (d=[]) => ({
     select(fn) {
         return this.d.filter(fn)
     },
-    update(fn, item) {
-        return Object.assign(this.get(fn) || {}, item)
+    update(fn, changes) {
+        return Object.assign(this.get(fn) || {}, changes)
     },
     delete(fn) {
         this.d = this.d.filter(item => !fn(item))
