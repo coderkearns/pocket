@@ -37,3 +37,30 @@ console.log("delete(bio==='')")
 User.delete(u=>u.bio==='')
 
 console.log("all:", User.d)
+
+// QUEUE
+console.log("\n** pocketQueue **")
+const pocketQueue = require("../queue")
+
+const q = pocketQueue()
+
+q.push(1)
+q.push(2)
+q.push(3)
+
+console.log('peek():', q.peek())
+
+console.log('pop():', q.pop())
+console.log('pop():', q.pop())
+console.log('pop():', q.pop())
+console.log('pop():', q.pop())
+
+// ENUM
+console.log("** pocketEnum **")
+const pocketEnum = require('../enum')
+
+const colors = pocketEnum("RED", "GREEN", "BLUE")
+
+console.log("colors:", JSON.stringify(colors))
+console.log("RED===RED:", colors.RED === colors.RED)
+console.log("RED===GREEN:", colors.RED === colors.GREEN)
