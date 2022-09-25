@@ -218,9 +218,12 @@ for (let data of l.iter()) {
 #### API
 
 ```typescript
-pocketList(data, next=null): {
+pocketList(data, next=null): {/
+    // d is the data stored in the list node
     d: any,
+    // n is the next node, or null
     n: pocketList|null,
+    // iter() iterates over the list and returns the `.d` of each node
     iter(): Generator<any>
 }
 ```
