@@ -193,6 +193,10 @@ pocketQueue(baseData=[]): {
 const pocketEnum = require("pocket/enum");
 const colors = pocketEnum("RED", "GREEN", "BLUE")
 
+JSON.stringify(colors) // { "RED": 0¸ "GREEN": 1, "BLUE": 2 }
+
+colors.RED === colors.RED   // true
+colors.RED !== COLORS.GREEN // true
 ```
 
 ## TODOs
