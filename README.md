@@ -1,4 +1,4 @@
-<div align="center">
+..<div align="center">
     <h1>Pocket</h1>
     <p>A collection of truly tiny utilities, written in javascript.</p>
 </div>
@@ -199,9 +199,35 @@ colors.RED === colors.RED   // true
 colors.RED !== COLORS.GREEN // true
 ```
 
+### `list`
+
+```javascript
+const pocketList = require("../list")
+
+// Create a list node
+const l = pocketList(1)
+
+// Set it's next to a new node, whose next is also a new node
+l.n = pocketList(2, pocketList(3))
+
+for (let data of l.iter()) {
+    data // 1, then 2, then 3
+}
+```
+
+#### API
+
+```typescript
+pocketList(data, next=null): {
+    d: any,
+    n: pocketList|null,
+    iter(): Generator<any>
+}
+```
+
 ## TODOs
 
-- [ ] `pocket/list` linked list implementation
+- [X] `pocket/list` linked list implementation
 
 ## Contributing
 

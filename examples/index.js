@@ -64,3 +64,14 @@ const colors = pocketEnum("RED", "GREEN", "BLUE")
 console.log("colors:", JSON.stringify(colors))
 console.log("RED===RED:", colors.RED === colors.RED)
 console.log("RED===GREEN:", colors.RED === colors.GREEN)
+
+// LIST
+console.log("** pocketList **")
+const pocketList = require("../list")
+
+const l = pocketList(1)
+l.n = pocketList(2)
+l.n.n = pocketList(3)
+
+console.log("l:", l)
+console.log("*iter():", [...l.iter()])
