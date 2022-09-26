@@ -56,7 +56,7 @@ console.log('pop():', q.pop())
 console.log('pop():', q.pop())
 
 // ENUM
-console.log("** pocketEnum **")
+console.log("\n** pocketEnum **")
 const pocketEnum = require('../enum')
 
 const colors = pocketEnum("RED", "GREEN", "BLUE")
@@ -66,7 +66,7 @@ console.log("RED===RED:", colors.RED === colors.RED)
 console.log("RED===GREEN:", colors.RED === colors.GREEN)
 
 // LIST
-console.log("** pocketList **")
+console.log("\n** pocketList **")
 const pocketList = require("../list")
 
 const l = pocketList(1)
@@ -75,3 +75,18 @@ l.n.n = pocketList(3)
 
 console.log("l:", l)
 console.log("*iter():", [...l.iter()])
+
+// STATE MACHINE
+console.log("\n** pocketStateMachine **")
+const pocketStateMachine = require("../stateMachine")
+
+const promiseMachine = pocketStateMachine({
+    PENDING: { reject: "REJECTED", resolve: "FUFILLED" },
+    REJECTED: { solve: "FUFILLED" },
+    FUFILLED: {}
+}, 'PENDING')
+
+console.log('promiseStateMachine:', promiseMachine)
+console.log('state===PENDING:', promiseMachine.state === promiseMachine.PENDING)
+console.log('do("resolve"):', promiseMachine.do('resolve'))
+console.log('state:', promiseMachine.state)

@@ -231,7 +231,8 @@ pocketList(data, next=null): {/
 ## TODOs
 
 - [X] `pocket/list` linked list implementation
-- [ ] `pocket/stateMachine` state machine. EX `const promiseMachine = pocketStateMachine({ PENDING: { reject: "REJECTED", resolve: "FUFILLED" }, REJECTED: {}, FUFILLED: {} }, 'PENDING'); promiseMachine.state === promiseMachine.PENDING; promiseMachine.do('resolve'); Optional: promiseMachine.on('REJECTED', (oldState) => {})`
+- [X] `pocket/stateMachine` state machine
+- [ ] `pocket/stateMachine` docs
 
 ## Contributing
 
