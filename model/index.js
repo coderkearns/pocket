@@ -17,3 +17,4 @@ module.exports = (d=[]) => ({
         this.d = this.d.filter(item => !fn(item))
     }
 })
+// This is a comment
