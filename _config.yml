@@ -1,3 +1,4 @@
 # Jekyll config (https://jekyllrb.com/docs/configuration/)
+name: pocket
 theme: architect
 markdown: CommonMarkGhPages # Use Github style markdown
