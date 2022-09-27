@@ -1,3 +1,7 @@
+---
+title: Home
+---
+
 <div align="center">
     <h1>Pocket</h1>
     <p>A collection of truly tiny utilities, written in javascript.</p>
