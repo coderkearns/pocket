@@ -237,7 +237,7 @@ pocketStateMachine(schema: Record<string, Record<string, string>>, startingState
     state: string,
     // do() does the event `e` if it exists for the current state, and returns either the new state or null.
     do(e: string): string|null,
-    
+
     // Each key of schema is now a property of the state machine
     [K: string in keyof schema]: K
 ```
@@ -283,6 +283,9 @@ pocketSubscription(baseListeners=[]): {
 
 - [X] `pocket/list` linked list implementation
 - [X] `pocket/stateMachine` state machine
+- [ ] `pocket/builder`
+- [ ] `pocket/graph`
+- [ ] `pocket/tree`
 
 ## Contributing
 
