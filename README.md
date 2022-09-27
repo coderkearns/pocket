@@ -40,7 +40,7 @@ Note that it is still very incomplete - feel free to check out the "[Contributin
 * [X] `pocket/list` linked list implementation
 * [X] `pocket/stateMachine` state machine
 * [X] Split the docs into their own seperate files in the /docs folder
-* [ ] `pocket/builder`
+* [X] `pocket/builder`
 * [ ] `pocket/graph`
 * [ ] `pocket/tree`
 
