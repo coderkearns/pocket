@@ -1,5 +1,14 @@
 # Jekyll config (https://jekyllrb.com/docs/configuration/)
 name: pocket
-#markdown: CommonMarkGhPages # Use Github style markdown
+title: pocket
+description: A collection of truly tiny utilities, written in javascript.
+
 remote_theme: just-the-docs/just-the-docs
 
+# Theme configuration (just-the-docs)
+search_enabled: false
+aux_links: # Top-right nav links
+  "View on GitHub":
+    - "//github.com/coderkearns/pocket"
+heading_anchors: true # allow users get link to specific headings on pages
+gh_edit_link: false # hide the "Edit this page on GitHub" link
