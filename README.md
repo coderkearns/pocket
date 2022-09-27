@@ -1,4 +1,4 @@
-..<div align="center">
+<div align="center">
     <h1>Pocket</h1>
     <p>A collection of truly tiny utilities, written in javascript.</p>
 </div>
@@ -40,7 +40,7 @@ const colors = pocketEnum("RED", "GREEN", "BLUE")
 JSON.stringify(colors) // { "RED": 0¸ "GREEN": 1, "BLUE": 2 }
 
 colors.RED === colors.RED   // true
-colors.RED !== COLORS.GREEN // true
+colors.RED !== colors.GREEN // true
 ```
 
 
@@ -72,7 +72,7 @@ eventEmitter.emit("log")
 ```typescript
 pocketEvents(baseEvents={}): {
     // e is a object holding an array of callbacks for each event name.
-    e: Record<string, [](...any)=>void>,
+    e: { [string]: [](...any)=>void },
     // on() registers the function `cb` as an event listener for the `event` event. It returns a function to unbind the event.
     on(event: string, cb: (...any)=>void): ()=>void,
     // emit() calls `cb(...args)` for each callback of the `event` event.
@@ -232,15 +232,14 @@ promiseMachine.state === promiseMachine.FUFILLED
 ```typescript
 pocketStateMachine(schema: Record<string, Record<string, string>>, startingState: string): {
     // s is the schema of the state machine
-    s: Record<string, Record<string, string>>,
+    s: { [string]: { [string]: string } },
     // state is the current state's string value
     state: string,
     // do() does the event `e` if it exists for the current state, and returns either the new state or null.
-    do(e: string): string|null
-} & {
+    do(e: string): string|null,
+    
     // Each key of schema is now a property of the state machine
-    [K in keyof schema]: K
-}
+    [K: string in keyof schema]: K
 ```
 
 
