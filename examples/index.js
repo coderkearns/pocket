@@ -82,7 +82,7 @@ const pocketStateMachine = require("../stateMachine")
 
 const promiseMachine = pocketStateMachine({
     PENDING: { reject: "REJECTED", resolve: "FUFILLED" },
-    REJECTED: { solve: "FUFILLED" },
+    REJECTED: { handle: "FUFILLED" },
     FUFILLED: {}
 }, 'PENDING')
 
