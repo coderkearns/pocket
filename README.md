@@ -1,7 +1,3 @@
----
-title: Home
----
-
 <div align="center">
     <h1>Pocket</h1>
     <p>A collection of truly tiny utilities, written in javascript.</p>
@@ -9,7 +5,7 @@ title: Home
 
 ## Description
 
-A collection of a number of javascript utilities and design patterns. All utilities are extremely small and simple, and have no dependencies. Heavily inspired by the work of [@ai](https://github.com/ai/), specifically his "nano" projects like [nanoid](https://github.com/ai/nanoid) and [nanoevents](https://github.com/ai/nanoevents).
+A collection of a number of javascript utilities and design patterns. All utilities are extremely small and simple, and have no dependencies. Heavily inspired by the work of [@ai](//github.com/ai/), specifically his "nano" projects like [nanoid](//github.com/ai/nanoid) and [nanoevents](//github.com/ai/nanoevents).
 
 ## Getting Started
 
@@ -41,18 +37,18 @@ Note that it is still very incomplete - feel free to check out the "[Contributin
 
 ## TODOs
 
-- [X] `pocket/list` linked list implementation
-- [X] `pocket/stateMachine` state machine
-- [ ] `pocket/builder`
-- [ ] `pocket/graph`
-- [ ] `pocket/tree`
-- [ ] Split the docs into their own seperate files in the /docs folder
+* [X] `pocket/list` linked list implementation
+* [X] `pocket/stateMachine` state machine
+* [X] Split the docs into their own seperate files in the /docs folder
+* [ ] `pocket/builder`
+* [ ] `pocket/graph`
+* [ ] `pocket/tree`
 
 ## Contributing
 
-This project is open to contributions! Create an issue about what you want to add or fix, or feel free to submit a pull request!
+This project is open to contributions! [Create an issue about](//github.com/coderkearns/pocket/issues/new) what you want us to add or fix, or feel free to submit a pull request!
 
-Starring this repo also helps contribute 😉
+Starring this [repo](//github.com/coderkearns/pocket) also helps contribute 😉
 
 ## License
 
