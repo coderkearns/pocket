@@ -31,6 +31,19 @@ const myEventEmitter = pocketEvents()
 
 ## Utilities
 
+### `enum`
+
+```javascript
+const pocketEnum = require("pocket/enum");
+const colors = pocketEnum("RED", "GREEN", "BLUE")
+
+JSON.stringify(colors) // { "RED": 0¸ "GREEN": 1, "BLUE": 2 }
+
+colors.RED === colors.RED   // true
+colors.RED !== COLORS.GREEN // true
+```
+
+
 ### `events`
 
 ```javascript
@@ -67,41 +80,35 @@ pocketEvents(baseEvents={}): {
 }
 ```
 
-### `subscription`
+### `list`
 
 ```javascript
-const pocketSubscription = require("pocket/subscription");
-const countSubscription = pocketSubscription()
+const pocketList = require("../list")
 
-let count = 0
+// Create a list node
+const l = pocketList(1)
 
-const unsubscribe = countSubscription.subscribe((c) => {
-    console.log("count is now", c)
-})
+// Set it's next to a new node, whose next is also a new node
+l.n = pocketList(2, pocketList(3))
 
-const setCount = c => {
-    count = c
-    countSubscription.publish(c)
+for (let data of l.iter()) {
+    data // 1, then 2, then 3
 }
-
-setCount(1)
-setCount(2)
-setCount(3)
 ```
 
 #### API
 
 ```typescript
-pocketSubscription(baseListeners=[]): {
-    // l is an array holding all the listener functions
-    l: [](...any)=>void,
-    // subscribe() registers a listener callback `cb`. It returns a function to unsubscribe the listener.
-    subscribe(cb: (...any)=>void): ()=>void,
-    // publish() calls all the listener functions with the given `args`.
-    publish(...args: []any): void
-
+pocketList(data, next=null): {
+    // d is the data stored in the list node
+    d: any,
+    // n is the next node, or null
+    n: pocketList|null,
+    // iter() iterates over the list and returns the `.d` of each node
+    iter(): Generator<any>
 }
 ```
+
 
 ### `model`
 
@@ -149,6 +156,7 @@ pocketModel(baseData=[]): {
 }
 ```
 
+
 ### `queue`
 
 ```javascript
@@ -187,46 +195,6 @@ pocketQueue(baseData=[]): {
 }
 ```
 
-### `enum`
-
-```javascript
-const pocketEnum = require("pocket/enum");
-const colors = pocketEnum("RED", "GREEN", "BLUE")
-
-JSON.stringify(colors) // { "RED": 0¸ "GREEN": 1, "BLUE": 2 }
-
-colors.RED === colors.RED   // true
-colors.RED !== COLORS.GREEN // true
-```
-
-### `list`
-
-```javascript
-const pocketList = require("../list")
-
-// Create a list node
-const l = pocketList(1)
-
-// Set it's next to a new node, whose next is also a new node
-l.n = pocketList(2, pocketList(3))
-
-for (let data of l.iter()) {
-    data // 1, then 2, then 3
-}
-```
-
-#### API
-
-```typescript
-pocketList(data, next=null): {
-    // d is the data stored in the list node
-    d: any,
-    // n is the next node, or null
-    n: pocketList|null,
-    // iter() iterates over the list and returns the `.d` of each node
-    iter(): Generator<any>
-}
-```
 
 ### `stateMachine`
 
@@ -272,6 +240,43 @@ pocketStateMachine(schema: Record<string, Record<string, string>>, startingState
 } & {
     // Each key of schema is now a property of the state machine
     [K in keyof schema]: K
+}
+```
+
+
+### `subscription`
+
+```javascript
+const pocketSubscription = require("pocket/subscription");
+const countSubscription = pocketSubscription()
+
+let count = 0
+
+const unsubscribe = countSubscription.subscribe((c) => {
+    console.log("count is now", c)
+})
+
+const setCount = c => {
+    count = c
+    countSubscription.publish(c)
+}
+
+setCount(1)
+setCount(2)
+setCount(3)
+```
+
+#### API
+
+```typescript
+pocketSubscription(baseListeners=[]): {
+    // l is an array holding all the listener functions
+    l: [](...any)=>void,
+    // subscribe() registers a listener callback `cb`. It returns a function to unsubscribe the listener.
+    subscribe(cb: (...any)=>void): ()=>void,
+    // publish() calls all the listener functions with the given `args`.
+    publish(...args: []any): void
+
 }
 ```
 
