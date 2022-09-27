@@ -286,6 +286,7 @@ pocketSubscription(baseListeners=[]): {
 - [ ] `pocket/builder`
 - [ ] `pocket/graph`
 - [ ] `pocket/tree`
+- [ ] Split the docs into their own seperate files in the /docs folder
 
 ## Contributing
 
