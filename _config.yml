@@ -1,4 +1,5 @@
 # Jekyll config (https://jekyllrb.com/docs/configuration/)
 name: pocket
-markdown: CommonMarkGhPages # Use Github style markdown
-remote_theme: gh-pages/merlot
+#markdown: CommonMarkGhPages # Use Github style markdown
+remote_theme: just-the-docs/just-the-docs
+
