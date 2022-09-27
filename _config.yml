@@ -1,6 +1,6 @@
 # Jekyll config (https://jekyllrb.com/docs/configuration/)
 name: pocket
-title: pocket
+title: null
 description: A collection of truly tiny utilities, written in javascript.
 
 remote_theme: just-the-docs/just-the-docs
